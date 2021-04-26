@@ -1,10 +1,7 @@
 <template>
     <div>
       <h1>Product List</h1>
-      <img
-        v-if="loading"
-        src="https://i.imgur.com/JfPpwOA.gif"
-      >
+      <img v-if="loading" src="https://i.imgur.com/JfPpwOA.gif" >
       <ul v-else>
         <li v-for="product in products">
           {{product.title}} - {{product.price | currency}} - {{product.inventory}}
@@ -45,7 +42,7 @@
     },
 
     created () {
-      this.loading = true
+      this.loading = true;
       this.fetchProducts()
         .then(() => this.loading = false)
     }
