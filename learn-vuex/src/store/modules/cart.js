@@ -60,15 +60,15 @@ export default {
       }
     },
 
-    checkout({state, commit}) {
+    checkout(context) {
       shop.buyProducts(
-        state.items,
+        context.state.items,
         () => {
-          commit('emptyCart');
-          commit('setCheckoutStatus', 'success')
+          context.commit('emptyCart');
+          context.commit('setCheckoutStatus', 'success')
         },
         () => {
-          commit('setCheckoutStatus', 'fail')
+          context.commit('setCheckoutStatus', 'fail')
         }
       )
     }
