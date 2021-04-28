@@ -50,7 +50,18 @@ export default new Vuex.Store({
                 context.commit('decrementProductInventory', product);
             }
         },
-        checkout(state, commit) {
+        /*checkout(context) {
+            shop.buyProducts(
+                context.state.cart,
+                () => {
+                    context.commit('emptyCart')
+                    context.commit('setCheckoutStatus', 'success')
+                },
+                () => {
+                    context.commit('setCheckoutStatus', 'fail')
+                })
+        }*/
+        checkout({state, commit}) {
             shop.buyProducts(
                 state.cart,
                 () => {
